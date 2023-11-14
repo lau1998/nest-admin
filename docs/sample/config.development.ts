@@ -13,7 +13,7 @@ export default {
     port: 3306,
     username: 'root',
     password: '123456',
-    database: 'sf-admin',
+    database: 'adminApi',
     synchronize: false,
     logging: false,
   },

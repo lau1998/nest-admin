@@ -59,7 +59,7 @@ async function bootstrap() {
   // swagger
   setupSwagger(app);
   // start
-  await app.listen(SERVER_PORT, '0.0.0.0');
+  await app.listen(SERVER_PORT, '127.0.0.1');
   const serverUrl = await app.getUrl();
   Logger.log(`api服务已经启动,请访问: ${serverUrl}`);
   Logger.log(`API文档已生成,请访问: ${serverUrl}/${process.env.SWAGGER_PATH}/`);

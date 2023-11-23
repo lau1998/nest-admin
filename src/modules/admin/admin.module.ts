@@ -6,6 +6,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { LoginModule } from './login/login.module';
 import { NetdiskModule } from './netdisk/netdisk.module';
 import { SystemModule } from './system/system.module';
+import { ImgModule } from './img/img.module';
 
 /**
  * Admin模块，所有API都需要加入/admin前缀
@@ -20,6 +21,7 @@ import { SystemModule } from './system/system.module';
           { path: 'netdisk', module: NetdiskModule },
           { path: 'account', module: AccountModule },
           { path: 'sys', module: SystemModule },
+          { path: 'img', module: ImgModule },
         ],
       },
       // like this url /admin/captcha/img

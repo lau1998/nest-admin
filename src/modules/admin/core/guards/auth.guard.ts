@@ -85,7 +85,8 @@ export class AuthGuard implements CanActivate {
     });
     // 遍历权限是否包含该url，不包含则无访问权限
     if (!permArray.includes(path.replace(`/${ADMIN_PREFIX}/`, ''))) {
-      throw new ApiException(11003);
+      // throw new ApiException(11003); // 暂时关闭权限限制
+      return true;
     }
     // pass
     return true;

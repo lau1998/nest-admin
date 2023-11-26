@@ -9,6 +9,7 @@ import {
 } from 'src/modules/admin/admin.constants';
 import SysDepartment from 'src/entities/admin/sys-department.entity';
 import SysLoginLog from 'src/entities/admin/sys-login-log.entity';
+import sysImgList from 'src/entities/admin/sys-imglist.entity';
 import SysMenu from 'src/entities/admin/sys-menu.entity';
 import SysRoleDepartment from 'src/entities/admin/sys-role-department.entity';
 import SysRoleMenu from 'src/entities/admin/sys-role-menu.entity';
@@ -24,6 +25,8 @@ import { SysDeptController } from './dept/dept.controller';
 import { SysDeptService } from './dept/dept.service';
 import { SysLogController } from './log/log.controller';
 import { SysLogService } from './log/log.service';
+import { SysImgController } from './img//img.controller';
+import { SysImgService } from './img/img.service';
 import { SysMenuController } from './menu/menu.controller';
 import { SysMenuService } from './menu/menu.service';
 import { SysRoleController } from './role/role.controller';
@@ -49,6 +52,7 @@ import { ConfigurationKeyPaths } from '@/config/configuration';
       SysUserRole,
       SysMenu,
       SysRoleMenu,
+      sysImgList,
       SysRole,
       SysRoleDepartment,
       SysUserRole,
@@ -79,6 +83,7 @@ import { ConfigurationKeyPaths } from '@/config/configuration';
     SysMenuController,
     SysDeptController,
     SysLogController,
+    SysImgController,
     SysTaskController,
     SysOnlineController,
     SysParamConfigController,
@@ -91,6 +96,7 @@ import { ConfigurationKeyPaths } from '@/config/configuration';
     SysMenuService,
     SysDeptService,
     SysLogService,
+    SysImgService,
     SysTaskService,
     SysTaskConsumer,
     SysOnlineService,
@@ -103,6 +109,7 @@ import { ConfigurationKeyPaths } from '@/config/configuration';
     SysUserService,
     SysMenuService,
     SysLogService,
+    SysImgService,
     SysOnlineService,
   ],
 })

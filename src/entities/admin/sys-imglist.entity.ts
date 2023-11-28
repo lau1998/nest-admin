@@ -17,6 +17,10 @@ export default class SysImgList extends BaseEntity {
   @ApiProperty()
   desc: string;
 
+  @Column({ nullable: true, type: 'int', default: 1 })
+  @ApiProperty()
+  status: number;
+
   @Column({ type: 'varchar', nullable: true, comment: '分类' })
   @ApiProperty()
   category: string;

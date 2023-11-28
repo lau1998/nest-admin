@@ -49,6 +49,9 @@ export class SysImgService {
       category: item.category,
       image: item.path,
       reducePath: item.reducePath,
+      status: item.status,
+      createdAt: item.createdAt,
+      updatedAt: item.updatedAt,
     }));
   }
 }

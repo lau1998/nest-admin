@@ -20,6 +20,10 @@ export default class SysRole extends BaseEntity {
   @ApiProperty()
   label: string;
 
+  @Column({ nullable: true, type: 'int', default: 1 })
+  @ApiProperty()
+  status: number;
+
   @Column({ nullable: true, default: '' })
   @ApiProperty()
   remark: string;

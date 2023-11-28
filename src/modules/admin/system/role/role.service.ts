@@ -33,7 +33,13 @@ export class SysRoleService {
     const result = await this.roleRepository.find({
       where: { id: Not(this.rootRoleId) },
     });
-    return result;
+    const resRoles = result?.map((item) => {
+      return {
+        ...item,
+        status: 1,
+      };
+    });
+    return resRoles;
   }
 
   /**
@@ -194,7 +200,7 @@ export class SysRoleService {
    */
   async page(param: PageSearchRoleDto): Promise<[SysRole[], number]> {
     const { limit, page, name, label, remark } = param;
-    const result = await this.roleRepository.findAndCount({
+    const result: any = await this.roleRepository.findAndCount({
       where: {
         id: Not(this.rootRoleId),
         name: Like(`%${name}%`),

@@ -16,6 +16,10 @@ export default class SysDepartment extends BaseEntity {
   @ApiProperty()
   name: string;
 
+  @Column({ nullable: true, type: 'int', default: 1 })
+  @ApiProperty()
+  status: number;
+
   @Column({ name: 'order_num', type: 'int', nullable: true, default: 0 })
   @ApiProperty()
   orderNum: number;

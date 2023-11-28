@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiSecurity, ApiTags } from '@nestjs/swagger';
 import { ApiOkResponsePaginated } from 'src/common/class/res.class';
 import { PageOptionsDto, PagepaginationDto } from 'src/common/dto/page.dto';
@@ -20,7 +20,7 @@ export class SysImgController {
   @ApiOperation({ summary: '分页查询图片列表' })
   @ApiOkResponsePaginated(ImgListInfo)
   @Post('imglist')
-  async loginLogPage(@Query() dto: PageOptionsDto): Promise<Promise<Gear>> {
+  async loginLogPage(@Body() dto: PageOptionsDto): Promise<Promise<Gear>> {
     const list = await this.imgService.pageGetLoginLog(dto.page - 1, dto.limit);
     const count = await this.imgService.countLoginLog();
     return {

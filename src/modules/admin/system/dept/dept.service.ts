@@ -144,6 +144,12 @@ export class SysDeptService {
         .orderBy('dept.order_num', 'ASC')
         .getMany();
     }
-    return depts;
+    const deptss = depts.map((item) => {
+      return {
+        ...item,
+        status: 1,
+      };
+    });
+    return deptss;
   }
 }

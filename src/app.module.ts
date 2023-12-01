@@ -10,6 +10,7 @@ import {
 } from './config/configuration';
 import { AdminModule } from './modules/admin/admin.module';
 import { FileModule } from './modules/file/file.module';
+import { PublicApiModule } from './modules/publicApi/publicApi.module';
 import { SharedModule } from './shared/shared.module';
 import { MissionModule } from './mission/mission.module';
 import { WSModule } from './modules/ws/ws.module';
@@ -89,6 +90,8 @@ import { LOGGER_MODULE_OPTIONS } from './shared/logger/logger.constants';
     WSModule,
     // file module
     FileModule,
+    // public module
+    PublicApiModule,
   ],
 })
 export class AppModule {}

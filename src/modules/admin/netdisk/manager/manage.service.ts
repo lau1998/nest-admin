@@ -47,7 +47,7 @@ export class NetDiskManageService {
    */
   async getFileList(prefix = '', marker = '', skey = ''): Promise<SFileList> {
     // 是否需要搜索
-    const searching = !isEmpty(skey);
+    const searching = !isEmpty(skey);``
     return new Promise<SFileList>((resolve, reject) => {
       this.bucketManager.listPrefix(
         this.qiniuConfig.bucket,

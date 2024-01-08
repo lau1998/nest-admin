@@ -25,10 +25,10 @@ export default {
   },
   // qiniu config
   qiniu: {
-    accessKey: 'xxx',
-    secretKey: 'xxx',
-    domain: 'xxx',
-    bucket: 'xxx',
+    accessKey: '7FA4cJ5Phn-JsJLBx5jKYYXdRd2TgHLEINoDVRuW',
+    secretKey: 'oP64UnQXwp1u5DI3RKA5-_fYAHaTqQQoloGDep10',
+    domain: 'https://file.czhlove.cn',
+    bucket: 'czhlove',
     zone: qiniu.zone.Zone_z0,
     access: 'public',
   },

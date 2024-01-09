@@ -16,6 +16,7 @@ import { ADMIN_PREFIX } from '../../admin.constants';
 import { PermissionOptional } from '../../core/decorators/permission-optional.decorator';
 import { OverviewSpaceInfo } from './overview.class';
 import { NetDiskOverviewService } from './overview.service';
+import { Authorize } from 'src/modules/admin/core/decorators/authorize.decorator';
 
 @ApiSecurity(ADMIN_PREFIX)
 @ApiTags('网盘概览模块')
@@ -30,6 +31,7 @@ export class NetDiskOverviewController {
   @ApiOkResponse({ type: OverviewSpaceInfo })
   @PermissionOptional()
   @Get('desc')
+  @Authorize() // 开放授权Api，使用该注解则无需校验Token及权限
   async space(): Promise<OverviewSpaceInfo> {
     const date = this.overviewService.getZeroHourAnd1Day(new Date());
     const hit = await this.overviewService.getHit(date);

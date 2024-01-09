@@ -160,3 +160,15 @@ export class FileOpDto {
   @IsString()
   toPath: string;
 }
+
+export class FileUpDto {
+  @ApiProperty({ description: '需要上传的文件', type: [FileOpItem] })
+  @Type(() => FileOpItem)
+  @ArrayMaxSize(NETDISK_HANDLE_MAX_ITEM)
+  @ValidateNested({ each: true })
+  file: FileOpItem;
+
+  @ApiProperty({ description: '上传凭证uploadToken' })
+  @IsString()
+  uploadToken: string;
+}

@@ -5,8 +5,11 @@ export const AdminUser = createParamDecorator(
   (data: string, ctx: ExecutionContext) => {
     const request = ctx.switchToHttp().getRequest();
     // auth guard will mount this
-    const user = request[ADMIN_USER];
+    // const user = request[ADMIN_USER];
 
-    return data ? user?.[data] : user;
+    // return data ? user?.[data] : user;
+
+    const authorization = request.raw.rawHeaders['authorization'];
+    return authorization;
   },
 );

@@ -47,7 +47,8 @@ export class NetDiskManageService {
    */
   async getFileList(prefix = '', marker = '', skey = ''): Promise<SFileList> {
     // 是否需要搜索
-    const searching = !isEmpty(skey);``
+    const searching = !isEmpty(skey);
+    ``;
     return new Promise<SFileList>((resolve, reject) => {
       this.bucketManager.listPrefix(
         this.qiniuConfig.bucket,
@@ -312,6 +313,38 @@ export class NetDiskManageService {
     });
     const uploadToken = policy.uploadToken(this.mac);
     return uploadToken;
+  }
+
+  /**上传文件 */
+  async uploadFile(file, uploadToken) {
+    const formUploader = new qiniu.form_up.FormUploader(this.config);
+    const putExtra = new qiniu.form_up.PutExtra();
+    const key = file.name;
+    return new Promise((resolve, reject) => {
+      formUploader.putFile(
+        uploadToken,
+        key,
+        file.path,
+        putExtra,
+        (respErr, respBody, respInfo) => {
+          if (respErr) {
+            reject(respErr);
+          }
+          if (respInfo.statusCode === 200) {
+            resolve(respBody);
+          } else {
+            reject(
+              new Error(
+                `Qiniu Error Code: ${respInfo.statusCode}
+                Qiniu Error Info: ${respInfo.statusMessage}
+                Qiniu Error Body: ${JSON.stringify(respBody)}
+                `,
+              ),
+            );
+          }
+        },
+      );
+    });
   }
 
   /**
